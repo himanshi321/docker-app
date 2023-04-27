@@ -9,7 +9,7 @@ pipeline {
         stage('Building image') { 
             steps { 
                 script { 
-                    dockerImage = docker.build('latest') 
+                    dockerImage = docker.build('himanshi321/getting-started:latest') 
                 }
             } 
         }     
