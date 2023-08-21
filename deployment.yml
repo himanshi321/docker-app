@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: docker-app
+  name: docker-app
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: docker-app
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: docker-app
+    spec:
+      containers:
+        - image: 322742385274.dkr.ecr.ap-south-1.amazonaws.com/frontend:latest
+          name: docker-app-build
+          resources:
+            limits:
+              cpu: 0.5
+              memory: 300M
+            requests:
+              cpu: 0.5
+              memory: 300M
+          ports:
+            - containerPort: 3000
